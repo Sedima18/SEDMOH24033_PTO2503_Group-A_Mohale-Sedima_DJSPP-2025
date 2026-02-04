@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { loadFromStorage, saveToStorage } from "../utils/storage";
+import { loadFromStorage, saveToStorage } from "../utils/LocalStorage";
 
 export const FavouritesContext = createContext();
 
