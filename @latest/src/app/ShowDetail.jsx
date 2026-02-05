@@ -1,33 +1,73 @@
-import { useLocation } from "react-router-dom";
-import { genreMap } from "../utils/genreMap";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { fetchShowById } from "../utils/api"; // make sure this exists
+import { genreMap } from "../utils/genreMap"; // import genreMap
 
 const ShowDetail = () => {
-  const location = useLocation();
-  const { show } = location.state || {}; // <-- get the show
+  const { id } = useParams();
 
-  if (!show) return <p>No show details available.</p>; // <-- shows this if not passed
+  const [show, setShow] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
+  useEffect(() => {
+    const loadShow = async () => {
+      try {
+        const data = await fetchShowById(id);
+        console.log("Fetched show:", data); // debug
+        setShow(data);
+      } catch (err) {
+        console.error(err);
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadShow();
+  }, [id]);
+
+  if (loading) return <p>Loading show details...</p>;
+  if (error) return <p>Error: {error}</p>;
+  if (!show) return <p>No show found.</p>;
+
+  // Map genre IDs to names
   const genreNames = show.genres
     ? show.genres.map((id) => genreMap[id] || "Unknown")
     : [];
 
+  // Format last updated date
   const updatedDate = new Date(show.updated).toLocaleDateString();
 
   return (
-    <main style={{ padding: "2rem" }}>
+    <main>
       <h1>{show.title}</h1>
       {show.image && <img src={show.image} alt={show.title} width="300" />}
-      <p>
-        <strong>Seasons:</strong> {show.seasons?.length || 0}
-      </p>
+      <p>{show.description}</p>
+
       {genreNames.length > 0 && (
         <p>
           <strong>Genres:</strong> {genreNames.join(" • ")}
         </p>
       )}
       <p>
+        <strong>Number of Seasons:</strong> {show.seasons?.length || 0}
+      </p>
+      <p>
         <strong>Last updated:</strong> {updatedDate}
       </p>
+
+      <h2>Seasons</h2>
+      {show.seasons?.map((season) => (
+        <div key={season.id}>
+          <h3>{season.title}</h3>
+          <ul>
+            {season.episodes?.map((ep) => (
+              <li key={ep.id}>{ep.title}</li>
+            ))}
+          </ul>
+        </div>
+      ))}
     </main>
   );
 };

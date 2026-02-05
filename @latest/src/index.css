@@ -1,6 +1,6 @@
-/* =========================
-   GLOBAL RESET & BASE
-   ========================= */
+/* ----------------------------------- */
+/* General reset and body styling      */
+/* ----------------------------------- */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -8,57 +8,42 @@
 }
 
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, Ubuntu, Cantarell, "Open Sans", sans-serif;
-  background-color: #f5f5f5;
-  color: #1c1c1c;
-  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.5;
 }
 
-/* Main container */
+/* ----------------------------------- */
+/* Main container styling              */
+/* ----------------------------------- */
 main {
+  padding: 2rem;
   max-width: 1200px;
-  margin: 2rem auto;
-  padding: 0 1rem;
+  margin: 0 auto;
 }
 
-/* =========================
-   HEADINGS
-   ========================= */
-h1 {
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-  color: #222;
-}
-
-h2, h3, h4 {
-  margin-bottom: 0.5rem;
-}
-
-/* =========================
-   PODCAST GRID
-   ========================= */
+/* ----------------------------------- */
+/* Home Page - Podcast Grid            */
+/* ----------------------------------- */
 .podcast-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.5rem;
 }
 
-/* =========================
-   PODCAST CARD
-   ========================= */
 .podcast-card {
-  background: #fff;
+  background-color: #fff;
   border-radius: 12px;
   overflow: hidden;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
   cursor: pointer;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .podcast-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
 }
 
 .podcast-card img {
@@ -71,92 +56,35 @@ h2, h3, h4 {
   padding: 1rem;
 }
 
-.podcast-card-content h3 {
-  font-size: 1.1rem;
+.podcast-card-content h2 {
+  font-size: 1.2rem;
   margin-bottom: 0.5rem;
 }
 
 .podcast-card-content p {
   font-size: 0.9rem;
-  color: #555;
-  line-height: 1.4;
-}
-
-.podcast-card-content .description {
-  font-size: 0.9rem;
-  color: #555;
-  margin-bottom: 0.5rem;
-  line-height: 1.4;
-}
-
-.podcast-card-content .genres {
-  font-size: 0.8rem;
-  color: #888;
   margin-bottom: 0.3rem;
+  color: #666;
 }
 
-.podcast-card-content .updated {
-  font-size: 0.8rem;
-  color: #aaa;
-}
-
-.podcast-card {
-  background: #fff;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
-
-.podcast-card:hover {
-  transform: translateY(-4px);
-}
-
-.podcast-card img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-}
-
-.podcast-card-content {
-  padding: 1rem;
-}
-
-.podcast-card-content .title {
-  font-size: 1.1rem;
-  margin-bottom: 0.5rem;
-  font-weight: bold;
-}
-
-.podcast-card-content .seasons,
-.podcast-card-content .genres,
-.podcast-card-content .updated {
-  font-size: 0.8rem;
-  color: #555;
-  margin-bottom: 0.3rem;
-}
-
-
-/* =========================
-   SHOW DETAIL PAGE
-   ========================= */
+/* ----------------------------------- */
+/* Show Detail Page                    */
+/* ----------------------------------- */
 .show-detail {
-  background: #fff;
-  border-radius: 16px;
-  padding: 2rem;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+}
+
+.show-detail img {
+  width: 300px;
+  border-radius: 12px;
+  flex-shrink: 0;
 }
 
 .show-info {
-  display: grid;
-  grid-template-columns: 260px 1fr;
-  gap: 2rem;
-}
-
-.show-info img {
-  width: 100%;
-  border-radius: 12px;
+  flex: 1;
 }
 
 .show-info h1 {
@@ -164,121 +92,69 @@ h2, h3, h4 {
 }
 
 .show-info p {
-  line-height: 1.6;
-  color: #444;
+  margin-bottom: 0.5rem;
 }
 
-/* =========================
-   EPISODE LIST
-   ========================= */
-.episode-list {
-  margin-top: 2rem;
+/* Seasons and episodes */
+.season {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fafafa;
+}
+
+.season h3 {
+  margin-bottom: 0.8rem;
 }
 
 .episode {
-  padding: 1rem 0;
-  border-bottom: 1px solid #e0e0e0;
-}
-
-.episode:last-child {
-  border-bottom: none;
-}
-
-.episode h4 {
-  margin-bottom: 0.3rem;
-}
-
-.episode p {
-  font-size: 0.9rem;
-  color: #666;
-}
-
-/* =========================
-   AUDIO PLAYER
-   ========================= */
-.audio-player {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: #222;
-  color: #fff;
-  padding: 0.5rem 1rem;
   display: flex;
   align-items: center;
   gap: 1rem;
-  z-index: 999;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  background: #f4f4f4;
+  border-radius: 6px;
 }
 
-.audio-player button {
-  background: none;
-  border: none;
-  color: #fff;
-  cursor: pointer;
-  font-size: 1rem;
-}
-
-/* =========================
-   CAROUSEL
-   ========================= */
-.carousel {
-  display: flex;
-  overflow-x: auto;
-  gap: 1rem;
-  padding: 1rem 0;
-  scroll-snap-type: x mandatory;
-}
-
-.carousel::-webkit-scrollbar {
-  display: none;
-}
-
-.carousel-item {
-  flex: 0 0 auto;
-  scroll-snap-align: start;
-  width: 200px;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-  cursor: pointer;
-}
-
-.carousel-item img {
-  width: 100%;
-  height: 120px;
+.episode img {
+  width: 80px;
+  border-radius: 6px;
   object-fit: cover;
 }
 
-.carousel-item h4 {
-  padding: 0.5rem;
+.episode p {
+  margin: 0;
+  font-weight: bold;
   font-size: 0.9rem;
 }
 
-/* =========================
-   LOADING / ERROR STATES
-   ========================= */
-.loading,
-.error,
-.empty {
-  text-align: center;
-  padding: 3rem;
-  font-size: 1.1rem;
-  color: #666;
-}
-
-/* =========================
-   RESPONSIVE
-   ========================= */
-@media (max-width: 768px) {
-  .show-info {
-    grid-template-columns: 1fr;
+/* ----------------------------------- */
+/* Responsive adjustments              */
+/* ----------------------------------- */
+@media (max-width: 1024px) {
+  .show-detail {
+    flex-direction: column;
+    align-items: center;
   }
 
+  .show-detail img {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .show-info {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
   .podcast-card img {
     height: 150px;
   }
 
-  .carousel-item {
-    width: 140px;
+  .episode img {
+    width: 60px;
   }
 }
