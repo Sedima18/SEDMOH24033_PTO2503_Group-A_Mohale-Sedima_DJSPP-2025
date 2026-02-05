@@ -1,10 +1,14 @@
 import PodcastCard from "./PodcastCard";
 
-const PodcastGrid = ({ podcasts }) => {
+const PodcastGrid = ({ shows }) => {
+  if (!shows || shows.length === 0) {
+    return <p>No podcasts available.</p>;
+  }
+
   return (
-    <section className="podcast-grid">
-      {podcasts.map((podcast) => (
-        <PodcastCard key={podcast.id} podcast={podcast} />
+    <section>
+      {shows.map((show) => (
+        <PodcastCard key={show.id} show={show} />
       ))}
     </section>
   );

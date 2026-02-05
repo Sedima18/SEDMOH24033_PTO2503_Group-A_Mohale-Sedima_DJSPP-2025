@@ -1,20 +1,15 @@
 import { Link } from "react-router-dom";
-import { genreMap } from "../utils/genreMap";
 
-const PodcastCard = ({ podcast }) => {
-  if (!podcast) return null;
-
-  const genres = podcast.genres
-    ?.map((g) => genreMap[g])
-    .filter(Boolean)
-    .join(" • ");
+const PodcastCard = ({ show }) => {
+  if (!show) return null;
 
   return (
-    <Link to={`/show/${podcast.id}`} className="podcast-card">
-      <img src={podcast.image} alt={podcast.title} />
-      <h3>{podcast.title}</h3>
-      <p>{genres}</p>
-    </Link>
+    <article>
+      <Link to={`/show/${show.id}`}>
+        <img src={show.image} alt={show.title} width="200" />
+        <h3>{show.title}</h3>
+      </Link>
+    </article>
   );
 };
 

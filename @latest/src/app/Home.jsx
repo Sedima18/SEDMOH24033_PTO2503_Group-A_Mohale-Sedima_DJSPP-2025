@@ -3,25 +3,18 @@ import { PodcastContext } from "../context/PodcastContext";
 import PodcastGrid from "../components/PodcastGrid";
 
 const Home = () => {
-  const context = useContext(PodcastContext);
-
-  // Safety guard – prevents silent crashes
-  if (!context) {
-    return <p>Podcast context not available.</p>;
-  }
-
-  const { shows, loading, error } = context;
+  const { shows, loading, error } = useContext(PodcastContext);
 
   if (loading) {
     return <p>Loading podcasts...</p>;
   }
 
   if (error) {
-    return <p>Error: {error}</p>;
+    return <p>{error}</p>;
   }
 
   if (!shows || shows.length === 0) {
-    return <p>No podcasts found.</p>;
+    return <p>No podcasts available.</p>;
   }
 
   return (
