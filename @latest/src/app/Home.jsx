@@ -5,17 +5,9 @@ import PodcastGrid from "../components/PodcastGrid";
 const Home = () => {
   const { shows, loading, error } = useContext(PodcastContext);
 
-  if (loading) {
-    return <p>Loading podcasts...</p>;
-  }
-
-  if (error) {
-    return <p>{error}</p>;
-  }
-
-  if (!shows || shows.length === 0) {
-    return <p>No podcasts available.</p>;
-  }
+  if (loading) return <p className="loading">Loading podcasts...</p>;
+  if (error) return <p className="error">{error}</p>;
+  if (!shows || shows.length === 0) return <p className="empty">No podcasts available.</p>;
 
   return (
     <main>

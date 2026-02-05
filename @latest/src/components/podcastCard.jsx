@@ -1,15 +1,14 @@
-import { Link } from "react-router-dom";
+import React from "react";
 
 const PodcastCard = ({ show }) => {
-  if (!show) return null;
-
   return (
-    <article>
-      <Link to={`/show/${show.id}`}>
-        <img src={show.image} alt={show.title} width="200" />
+    <div className="podcast-card">
+      <img src={show.image} alt={show.title} />
+      <div className="podcast-card-content">
         <h3>{show.title}</h3>
-      </Link>
-    </article>
+        <p>{show.description}</p>
+      </div>
+    </div>
   );
 };
 
