@@ -1,17 +1,21 @@
 import { useContext } from "react";
 import { PodcastContext } from "../context/PodcastContext";
 import PodcastGrid from "../components/PodcastGrid";
+import ThemeToggle from "../components/ThemeToggle";
 
 const Home = () => {
   const { shows, loading, error } = useContext(PodcastContext);
 
-  if (loading) return <p className="loading">Loading podcasts...</p>;
-  if (error) return <p className="error">{error}</p>;
-  if (!shows || shows.length === 0) return <p className="empty">No podcasts available.</p>;
+  if (loading) return <p>Loading podcasts...</p>;
+  if (error) return <p>{error}</p>;
 
   return (
     <main>
-      <h1>Podcasts</h1>
+      <header className="app-header">
+        <h1>Podcasts</h1>
+        <ThemeToggle />
+      </header>
+
       <PodcastGrid shows={shows} />
     </main>
   );

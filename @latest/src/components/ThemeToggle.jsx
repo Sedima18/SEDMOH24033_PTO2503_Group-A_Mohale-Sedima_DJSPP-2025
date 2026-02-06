@@ -6,7 +6,7 @@ const ThemeToggle = () => {
 
   return (
     <button onClick={toggleTheme}>
-      {theme === "light" ? "🌙" : "☀️"}
+      {theme === "light" ? "☀️" : "🌙"}
     </button>
   );
 };

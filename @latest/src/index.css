@@ -157,6 +157,127 @@ a:hover {
   border: 1px solid #ccc;
 }
 
+/* =========================
+   THEME VARIABLES
+========================= */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #111111;
+  --card-bg: #f4f4f4;
+  --border-color: #dddddd;
+}
+
+[data-theme="dark"] {
+  --bg-color: #121212;
+  --text-color: #f5f5f5;
+  --card-bg: #1e1e1e;
+  --border-color: #333333;
+}
+
+/* =========================
+   GLOBAL STYLES
+========================= */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+/* =========================
+   HEADER
+========================= */
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+/* =========================
+   BUTTON
+========================= */
+.theme-toggle {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border-color);
+  background: var(--card-bg);
+  color: var(--text-color);
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.theme-toggle:hover {
+  opacity: 0.85;
+}
+
+/* =========================
+   PODCAST CARD – DARK MODE ONLY
+========================= */
+[data-theme="dark"] .podcast-card {
+  background-color: #1e1e1e;
+  border-color: #333333;
+}
+
+[data-theme="dark"] .podcast-card-content {
+  color: #f5f5f5;
+}
+
+[data-theme="dark"] .podcast-card-content .seasons,
+[data-theme="dark"] .podcast-card-content .genres,
+[data-theme="dark"] .podcast-card-content .updated {
+  opacity: 0.85;
+}
+
+[data-theme="dark"] .podcast-card:hover {
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
+}
+
+/* =========================
+   THEME TOGGLE ICON
+========================= */
+.theme-toggle {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  background-color: #ffffff;
+  color: #222222;
+  font-size: 1.2rem;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+/* Hover effect */
+.theme-toggle:hover {
+  transform: scale(1.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* =========================
+   DARK MODE ICON ONLY
+========================= */
+[data-theme="dark"] .theme-toggle {
+  background-color: #1e1e1e;
+  color: #f5f5f5;
+  border-color: #333333;
+}
+
+[data-theme="dark"] .theme-toggle:hover {
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6);
+}
+
 /* ----------------------------------- */
 /* Responsive adjustments              */
 /* ----------------------------------- */
