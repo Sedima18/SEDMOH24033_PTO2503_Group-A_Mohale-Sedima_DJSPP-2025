@@ -1,104 +1,134 @@
-# 🎧 DJS Portfolio Piece – Podcast App (React)
+# 🎙️ Podcast App (React)
 
-## 📋 Overview
-
-In this final phase, you will enhance the podcast app you've been building throughout the DJS course. The app already includes a landing page with searchable, sortable, and filterable podcast previews, as well as a show detail page with season toggling.
-
-This project introduces key new features including global audio playback, favouriting episodes, deployment best practices, UI enhancements, and optional listening progress tracking.
-
-Your goal is to build a polished, production-ready React application that offers an engaging and seamless user experience.
-
-> **Tip:** You are encouraged to explore the React ecosystem to help implement features efficiently.
-
-## 🎯 Objectives
-
-- Implement a global audio player with full playback control
-- Add support for favouriting episodes with persistent storage
-- Introduce a recommended shows carousel on the landing page
-- Support theme toggling (light/dark mode)
-- Ensure robust routing and deploy the app with professional polish
-- Optionally track listening progress across episodes and sessions
-
-## 🚀 Core Features & User Stories
-
-### 🛠️ Setup and Deployment
-
-- Deploy your app to **Vercel** using a **custom domain or URL**
-- Add a **custom favicon** for easy identification in browser tabs
-- Use tools like [metatags.io](https://metatags.io) to set **rich social media preview metadata**
-- Ensure that direct access to dynamic routes (e.g. `/show/1`) works correctly (SPA routing fallback)
-
-### 🔊 Global Audio Player
-
-- Play audio using the provided **placeholder API**
-- Keep the player **fixed at the bottom** of the screen across all pages
-- Ensure **uninterrupted playback** when navigating between pages
-- Provide **play, pause, seek, and progress tracking**
-- Add a **confirmation prompt** on page reloads during playback
-
-### ❤️ Favourites
-
-- Allow users to **favourite or unfavourite episodes** via a button/icon
-- Use **localStorage** to persist favourites across sessions
-- Provide **visual feedback** for favourited items (e.g., filled heart)
-- Create a **favourites page** displaying all saved episodes
-- Display **associated show and season** for each favourite
-- Show the **date/time added** to favourites
-- **Group favourites by show title**
-- Add **sorting options**:
-  - A–Z / Z–A by title
-  - Newest / Oldest by date added
-
-### 🎠 Recommended Shows Carousel
-
-- Add a **horizontally scrollable carousel** to the landing page
-- Show each show’s **image, title, and genre tags**
-- Support **looping** and navigation via **swipe or arrows**
-- Clicking a carousel item should navigate to the **show’s detail page**
-
-### 🌗 Theme Toggle
-
-- Include a **toggle** for switching between light and dark mode
-- **Persist theme selection** using `localStorage`
-- Ensure the **entire app UI updates smoothly**
-- Use **appropriate icons** (e.g., sun/moon) to indicate current theme
-- Reflect selected theme across all views and components
-
-## 🌟 Stretch Goal – Listening Progress (Optional)
-
-- Save playback position per episode and **resume playback**
-- Mark episodes as **"finished"** once fully played
-- Display **progress indicators** for episodes in progress
-- Allow users to **reset listening history**
-- Save listening history in local storage
-
-## ✅ Deliverables
-
-- A fully functional and deployed podcast app
-- Source code in **GitHub** with clear commit history
-- Live demo link (**Vercel**)
-- (Optional) Short demo video
-
-## 💡 Tips
-
-- Prioritise **user experience** and **clean component structure**
-- Use **React best practices** (components, hooks, state management)
-- Ensure the app is **responsive** and **mobile-friendly**
-- Test localStorage and audio persistence thoroughly
-- Make use of the **React ecosystem** to accelerate development!
+A modern podcast browsing application built with **React** that allows users to explore podcasts, view show details, play episodes globally, and manage favourites.  
+This project focuses on clean architecture, global state management with Context API, and a smooth user experience.
 
 ---
 
-## 🧑‍⚖️ Panel Review
+## 🚀 Features
 
-After submitting your project, you will be required to present your work to a coach or panel of coaches.
+- 📚 Browse and explore podcasts
+- 🔍 Search, sort, and filter shows
+- 🎧 Global audio player (persistent across pages)
+- ❤️ Favourite episodes and shows
+- 🌙 Light / Dark theme toggle (saved in localStorage)
+- 📄 Show detail pages with seasons and episodes
+- 💾 State persistence using localStorage
+- 🧭 Client-side routing with React Router
 
-During this session, you must:
+---
 
-- **Demonstrate** all the features you have implemented in your application.
-- **Explain** how each feature was built, referring directly to your code (e.g., components, state, hooks, storage).
-- Discuss the **decisions** you made during development (e.g., choice of libraries, structure, naming conventions).
-- Break down the **logic** behind key functionalities (e.g., how audio persistence or favouriting works).
-- Be prepared to answer **questions** from the coaches about your project, code structure, and implementation choices.
+## 🛠️ Tech Stack
 
-This is your opportunity to showcase both your technical and problem-solving skills—treat it like a real-world project revsiew.
+- **React**
+- **React Router v6**
+- **Context API** (global state management)
+- **Vite** (development & build tool)
+- **CSS Modules**
+- **LocalStorage** (theme & favourites persistence)
+
+---
+
+## 📁 Project Structure
+
+src/
+├── components/
+│ ├── UI/
+│ │ ├── index.js # Barrel file exporting all UI components
+│ │ ├── Header.jsx
+│ │ ├── AudioPlayerBar.jsx
+│ │ └── Header.module.css
+│ ├── podcast/
+│ │ └── index.js # Barrel file exporting podcast-related components
+│ └── filters/
+│ └── index.js # Barrel file exporting filter components
+│
+├── pages/
+│ ├── Home.jsx
+│ ├── ShowDetail.jsx
+│ └── Favourites.jsx
+│
+├── context/
+│ ├── PodcastContext.jsx
+│ ├── AudioPlayerContext.jsx
+│ ├── ThemeContext.jsx
+│ └── FavouritesContext.jsx
+│
+├── utils/
+│ ├── api.js
+│ └── genreMap.js
+│
+├── App.jsx
+├── main.jsx
+└── index.css
+
+
+---
+
+## 📦 Importing via Barrel Files
+
+Barrel files simplify imports by re-exporting multiple components from a single file:
+
+```js
+// Instead of importing each file individually:
+import Header from './components/UI/Header';
+import AudioPlayerBar from './components/UI/AudioPlayerBar';
+
+// With the barrel file (index.js):
+import { Header, AudioPlayerBar } from './components/UI';
+This pattern is used in:
+
+components/UI/index.js
+
+components/podcast/index.js
+
+components/filters/index.js
+
+▶️ Getting Started
+1️⃣ Clone the repository
+git clone <your-repo-url>
+cd podcast-app
+2️⃣ Install dependencies
+npm install
+3️⃣ Start the development server
+npm run dev
+Open your browser at:
+
+http://localhost:5173
+🎧 Audio Player
+Global audio player persists across routes
+
+Playback state managed via AudioPlayerContext
+
+Users can play, pause, and seek episodes
+
+Playback state updates automatically in the UI
+
+🌗 Theme Support
+Light and Dark themes available
+
+User preference saved in localStorage
+
+Theme is applied automatically on app load
+
+❤️ Favourites
+Users can add/remove favourite episodes
+
+Favourites persist across sessions using localStorage
+
+Accessible via the /favourites route
+
+🧪 Error Handling & Stability
+Guarded rendering prevents runtime crashes
+
+Fixed case-sensitive import issues
+
+Removed invalid asset references
+
+App now renders reliably across refreshes and routes
+
+📜 Build for Production
+npm run build
+👨‍💻 Author
+Sedima Mohale
+Podcast App – DJS Portfolio Project
