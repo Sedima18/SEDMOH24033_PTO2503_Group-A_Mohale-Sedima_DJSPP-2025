@@ -1,9 +1,7 @@
 import { Routes, Route } from "react-router-dom";
-import Header from "./components/UI/Header";
 import Home from "./app/Home";
 import ShowDetail from "./app/ShowDetail";
-import Favourites from "./app/FavePage";
-import AudioPlayer from "./components/UI/AudioPlayer";
+import Favourites from "./app/Favourites";
 
 
 
