@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useRef } from "react";
 import { PodcastContext } from "../context/PodcastContext";
 import { Link } from "react-router-dom";
 import GenreTags from "./UI/GenreTags";
-import styles from "./carousel.module.css";
+import styles from "./Carousel.module.css";
 
 export default function RecommendedCarousel() {
   const { allPodcasts } = useContext(PodcastContext);
