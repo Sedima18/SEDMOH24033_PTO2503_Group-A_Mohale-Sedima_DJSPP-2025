@@ -1,9 +1,10 @@
-🎧 Final Podcast App 🎯
+## 🎧 Final Podcast App 🎯
 A polished, production-ready React podcast platform with global audio playback, favourites, themes, routing, and rich UI enhancements. The Dynamic Podcast App is a modern, responsive podcast platform built with React. Users can explore podcasts, view seasons and episodes, play audio with a persistent global player, save favourites, toggle themes, and enjoy a smooth and engaging browsing experience.
 
 
-🚀 Features
-🔊 Global Audio Player
+## 🚀 Features
+
+## 🔊 Global Audio Player
 
 Fixed bottom global audio player
 
@@ -19,7 +20,7 @@ State persists until page refresh
 
 Smooth UI transitions
 
-❤️ Favourites System
+## ❤️ Favourites System
 Favourites are persisted with localStorage and support:
 
 ✅ Add/remove favourite episodes
@@ -38,7 +39,7 @@ A–Z/ Z–A
 
 Newest / Oldest by date added
 
-🎠 Recommended Shows Carousel
+## Recommended Shows Carousel
 Horizontally scrollable carousel
 
 Swipe navigation
@@ -53,7 +54,7 @@ Clicking a show navigates to its detail page
 
 Built with lightweight carousel handling
 
-🌗 Theme Toggle (Light/Dark Mode)
+## 🌗 Theme Toggle (Light/Dark Mode)
 Dark/light theme switcher
 
 Saved in localStorage
@@ -66,7 +67,7 @@ Sun/moon icon changes dynamically
 
 Accessible color contrast
 
-🔍 Podcast Browsing
+## 🔍 Podcast Browsing
 Filterable and searchable list of shows
 
 Sort by categories
@@ -88,7 +89,7 @@ Click to play episodes
 
 Progress indicator in audio player
 
-🛠️ Technologies Used
+## 🛠️ Technologies Used
 React (component-based UI)
 
 React Router (SPA routing)
@@ -105,7 +106,7 @@ Node.js + npm
 
 Vercel for
 
-📦 Project Structure
+## 📦 Project Structure
 
 project-root/
 ├── node_modules/
@@ -175,7 +176,7 @@ project-root/
 └── vite.config.js
 
 
-⚙️ Setup Instructions
+## ⚙️ Setup Instructions
 ✅ Prerequisites
 
 Node.js 14+
