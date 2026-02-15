@@ -152,9 +152,5 @@ npm install
 # 4. Run development server
 npm run dev
 
-Deployment
 
-The app automatically deploys on Vercel after each push to GitHub.
-
-Live app: https://sedmoh-24033-pto-2503-group-a-mohal-mu.vercel.app/
 
